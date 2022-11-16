@@ -69,8 +69,6 @@ envoy_cc_library(
     ],
 )
 
-api_proto_package()
-
 envoy_cc_library(
     name = "http_cache_lib",
     srcs = ["http_cache.cc"],
@@ -79,7 +77,6 @@ envoy_cc_library(
         ":cache_custom_headers",
         ":cache_entry_utils_lib",
         ":cache_headers_utils_lib",
-        ":key_cc_proto",
         ":range_utils_lib",
         "//envoy/buffer:buffer_interface",
         "//envoy/common:time_interface",
