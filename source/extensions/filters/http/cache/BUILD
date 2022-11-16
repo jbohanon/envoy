@@ -70,10 +70,6 @@ envoy_cc_library(
 )
 
 api_proto_package()
-envoy_proto_library(
-    name = "key",
-    srcs = ["key.proto"],
-)
 
 envoy_cc_library(
     name = "http_cache_lib",
