@@ -6,6 +6,7 @@ load(
     "envoy_proto_library",
 )
 
+load("@envoy_api//bazel:api_build_system.bzl", "api_proto_package")
 licenses(["notice"])  # Apache 2
 
 ## Pluggable HTTP cache filter
@@ -68,6 +69,7 @@ envoy_cc_library(
     ],
 )
 
+api_proto_package()
 envoy_proto_library(
     name = "key",
     srcs = ["key.proto"],
