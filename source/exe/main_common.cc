@@ -85,6 +85,7 @@ std::string MainCommon::hotRestartVersion(bool hot_restart_enabled) {
 }
 
 int MainCommon::main(int argc, char** argv, PostServerHook hook) {
+  std::cout << "It's a me, Mario!" << std::endl;
 #ifndef __APPLE__
   // absl::Symbolize mostly works without this, but this improves corner case
   // handling, such as running in a chroot jail.
