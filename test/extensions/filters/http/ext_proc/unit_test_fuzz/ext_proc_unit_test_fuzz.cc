@@ -6,6 +6,7 @@
 #include "test/fuzz/fuzz_runner.h"
 #include "test/mocks/http/mocks.h"
 #include "test/mocks/network/mocks.h"
+#include "parser/parser.h"
 
 using testing::Return;
 using testing::ReturnRef;
@@ -62,6 +63,11 @@ DEFINE_PROTO_FUZZER(
   // Prepare filter.
   const envoy::extensions::filters::http::ext_proc::v3::ExternalProcessor proto_config =
       input.config();
+
+  for (const auto& matcher : proto_config.request_attributes()) {
+    auto parse_status = google::api::expr::parser::Parse(matcher);
+  }
+  return;
   ExternalProcessing::FilterConfigSharedPtr config;
 
   // Create regex engine which is used by regex matcher code.
